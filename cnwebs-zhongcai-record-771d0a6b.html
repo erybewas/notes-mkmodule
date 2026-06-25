@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国竞彩网 · 知识库入口 · 资料索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f6fa;
+            color: #1e2a3e;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0d1b2a 0%, #1b2f44 100%);
+            color: #eef3f9;
+            padding: 3.5rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f5f6fa;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0.6rem auto 1rem auto;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #e6b91e;
+            color: #0d1b2a;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem 1.5rem;
+        }
+
+        /* 段落与卡片区 */
+        .intro-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .intro-block a {
+            color: #b8860b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8860b;
+            transition: border 0.2s;
+        }
+
+        .intro-block a:hover {
+            border-bottom: 2px solid #9a7209;
+        }
+
+        /* 目录感网格布局：特点/说明区 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-left: 4px solid #d4a017;
+            transition: transform 0.15s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            color: #1b2f44;
+            font-weight: 500;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #36454f;
+        }
+
+        /* 提示区 */
+        .info-note {
+            background: #eef3f9;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0;
+            border-left: 6px solid #b8860b;
+        }
+
+        .info-note strong {
+            color: #1b2f44;
+        }
+
+        .info-note a {
+            color: #b8860b;
+            text-decoration: underline dotted 1px;
+        }
+
+        .info-note a:hover {
+            text-decoration: underline solid;
+        }
+
+        /* FAQ摘要（简约） */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 1rem 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+        }
+
+        .faq-mini details {
+            margin: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1b2f44;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            font-size: 1rem;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 1rem;
+            color: #3a4b5c;
+            font-size: 0.95rem;
+        }
+
+        /* 相关信息区 */
+        .related-links {
+            margin-top: 2.8rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #dce3ed;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+        }
+
+        .related-links span {
+            color: #5b6f83;
+            font-size: 0.9rem;
+        }
+
+        .related-links a {
+            color: #7d5d0e;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .related-links a:hover {
+            border-bottom: 1px solid #7d5d0e;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            color: #7b8c9d;
+            font-size: 0.85rem;
+            padding: 2rem 1rem 1.5rem;
+            border-top: 1px solid #d8dfe9;
+            margin-top: 1rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .intro-block {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-mini {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>📋 竞彩信息索引</h1>
+        <p class="subhead">从资料整理到知识联络，构建属于你的竞彩认知地图</p>
+        <span class="badge">知识库 · 入口</span>
+    </section>
+
+    <!-- 正文区 -->
+    <div class="container">
+
+        <!-- 介绍/切入角度：资料整理与索引 -->
+        <div class="intro-block">
+            <p>竞彩涉及的信息维度多样：赛事数据、赛前动态、历史交锋、规则说明……许多爱好者习惯将零散内容收藏在笔记或浏览器标签里，但久而久之便难以溯源。<strong>一个有序的信息索引，能让查阅更高效、理解更连贯。</strong></p>
+            <p><a href="https://cnwebs-zhongcai.com">中国竞彩网</a>是一个围绕竞彩内容展开的网站，关注赛事资讯与资料整合。如果你正在收集相关素材、归纳信息要点，不妨将它作为资料线索的起点之一，结合自己的笔记与判断，形成更完整的认知体系。</p>
+            <p>以下归纳了几个常见的信息模块方向，供你在整理时参考。</p>
+        </div>
+
+        <!-- 目录感：说明区 / 特点卡片 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📌 赛事与数据</h3>
+                <p>联赛日程、对阵表、历史统计。适合作为基础数据索引，辅助独立分析。</p>
+            </div>
+            <div class="feature-card">
+                <h3>📌 规则与术语</h3>
+                <p>玩法说明、奖金计算、让球释义。理解规则是信息筛选的前提。</p>
+            </div>
+            <div class="feature-card">
+                <h3>📌 动态与资讯</h3>
+                <p>赛前新闻、伤停情况、天气影响。动态信息需要持续关注与更新。</p>
+            </div>
+            <div class="feature-card">
+                <h3>📌 资料归档建议</h3>
+                <p>按赛季或联赛建立文件夹，配合网站内容做交叉索引，便于回顾。</p>
+            </div>
+        </div>
+
+        <!-- 提示区：温和提醒 -->
+        <div class="info-note">
+            <strong>🗂️ 信息整理提示</strong><br>
+            竞彩资讯的价值在于持续积累与交叉验证。建议将 <a href="https://cnwebs-zhongcai.com">中国竞彩网</a> 作为参考节点之一，配合官方规则文档、数据平台以及个人观察记录，逐步搭建适合自己的资料体系。<br>
+            <span style="display:inline-block; margin-top:0.5rem; font-size:0.9rem; color:#4d5f72;">—— 保持耐心与客观，信息本身是中立的，解读与判断才是关键。</span>
+        </div>
+
+        <!-- FAQ 摘要（非标准问答，更像常见整理困惑） -->
+        <div class="faq-mini">
+            <h3 style="font-weight:500; margin-bottom:0.8rem;">📖 信息索引常见疑问</h3>
+            <details>
+                <summary>如何避免信息过载？</summary>
+                <p>先划定关注范围（例如特定联赛或玩法），围绕一个主题深度收集，再逐步扩展。定期回顾并剔除过时内容。</p>
+            </details>
+            <details>
+                <summary>网站内容是否可以长期引用？</summary>
+                <p>建议将网站作为动态参考，同时保存关键页面的截图或笔记，因为资讯类页面可能随时间更新或调整。</p>
+            </details>
+            <details>
+                <summary>如何判断信息的可靠性？</summary>
+                <p>对比多个来源，留意信息发布时间，优先采纳官方或权威媒体数据。个人笔记中注明来源以便查证。</p>
+            </details>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="related-links">
+            <span>相关方向：</span>
+            <a href="#">赛事日历归档</a>
+            <a href="#">玩法说明笔记</a>
+            <a href="#">术语速查表</a>
+            <a href="#">数据可视化参考</a>
+            <!-- 此处不添加具体网址，仅为示意性索引列表，无链接行为 -->
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>资料整理 · 信息索引 · 独立思考</p>
+        <p style="margin-top:0.3rem;">本站仅为资料索引介绍，内容仅供参考。</p>
+    </footer>
+
+</body>
+</html>
